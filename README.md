@@ -26,7 +26,7 @@ TARDEO es una plataforma web diseñada para ayudar a las personas a descubrir ev
 ##  Ver Demo
 
 El proyecto está publicado en GitHub Pages:
- [https://felipecodemaker.github.io/tardeo/](https://felipecodemaker.github.io/tardeo/)
+ [https://github.com/felipeCodeMaker/Tardeo.git](https://github.com/felipeCodeMaker/Tardeo.git)
 
 Prototipo en Figma:
  [https://www.figma.com/...](https://www.figma.com/design/btzLaxTDdoMgmtMYFMnGlH/TrabajoFinalTARDEO?m=auto&t=z80fkKGUdPlbeqxr-1) *(añade tu enlace)*
@@ -81,7 +81,7 @@ Prototipo en Figma:
 
 1. **Clona el repositorio** (o descarga el ZIP)
 ```bash
-git clone https://github.com/felipeCodeMaker/tardeo.git
+git clone https://github.com/felipeCodeMaker/Tardeo.git
 cd tardeo
 
 ```
