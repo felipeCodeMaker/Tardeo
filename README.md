@@ -16,7 +16,8 @@ TARDEO es una plataforma web diseñada para ayudar a las personas a descubrir ev
   - [Ver Demo](#ver-demo)
   - [Características Principales](#características-principales)
   - [Tecnologías Utilizadas](#tecnologías-utilizadas)
-  - [Estructura del Proyecto](#estructura-del-proyecto)
+  - [Guia de usuario](#guia-de-usuario)
+  - [Guia de usuario](#guia-de-usuario-1)
   - [Guía de Instalación](#guía-de-instalación)
     - [Requisitos previos](#requisitos-previos)
     - [Pasos para ejecutar en local](#pasos-para-ejecutar-en-local)
@@ -63,12 +64,10 @@ Prototipo en Figma:
 
 ---
 
-##  Estructura del Proyecto
+##  Guia de usuario
 
-
-
-
-
+Enlace a la guia del usuario:
+ [Guia de usuario](https://github.com/felipeCodeMaker/Tardeo/blob/fb6afa5ea04d8f4cffcb8d776cb493c14c92b89c/GuiaUsuario.md)
 ---
 
 ##  Guía de Instalación
