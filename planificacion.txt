@@ -1,0 +1,13 @@
+1ºPrepara una carta de html compatible con javascript replicable (reutilizable en el código).
+
+
+2º Cuando te metes al html de ciudades apareceran 3 cartas de ciudades populares,
+    estas se pueden clicar para acceder a los datos de esa ciudad en el mismo html.
+
+3º Hay un desplegable de los eventos.html disponibles, cuando pulses la ciudad disponible saldrán todos los 
+    eventos que hay en esa ciudad en forma de cartas.
+
+4º Hacer que en perfilsi le das:
+    Si no has iniciado sesion, te manda a iniciar sesion.
+    Si has iniciado sesion, te muestra tus datos y te permite actualizarlos. 
+

@@ -1,0 +1,29 @@
+{
+
+    "usuarios":[
+        {
+            "id": 1,
+            "alias": "Juan",
+            "email": "juanito@gmail.com",
+            "password": "123456"
+        },
+        {
+            "id": 2,
+            "alias": "Maria",
+            "email": "mary@gmail.com",
+            "password": "123456"
+        },
+        {
+            "id": 3,
+            "alias": "Pedro",
+            "email": "pedrito@gmail.com",
+            "password": "123456"
+        },
+        {
+            "id": 4,
+            "alias": "John",
+            "email": "john@gmail.com",
+            "password": "123456"
+        }
+    ]
+}

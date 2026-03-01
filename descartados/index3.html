@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TARDEO - Descubre Nuevas Formas de Disfrutar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <style>
+        /* Estilos personalizados mínimos */
+        .gradient-text {
+            background: linear-gradient(135deg, #07000e, #1c61d9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Transiciones para el sidebar */
+        .sidebar {
+            transition: all 0.3s ease;
+        }
+        
+        .overlay {
+            transition: all 0.3s ease;
+        }
+    </style> -->
+
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Barra superior --> 
+
+
+    <nav class="bg-gradient-to-r from-black to-blue-500 text-white p-4 md:p-6 shadow-lg sticky top-0 z-50">
+        <div class="flex justify-between items-center">
+            <div class="text-2xl md:text-3xl font-bold tracking-wide text-center flex-1">
+                <a href="./index.html">TARDEO</a>
+            </div>
+            <button class="menu-toggle p-2 rounded hover:bg-white/10 transition-colors" id="menuToggle">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Menú lateral desplegable -->
+    <div class="sidebar fixed top-0 -right-80 w-72 h-screen bg-white shadow-xl z-50 p-6 overflow-y-auto" id="sidebar">
+        <div class="flex justify-between items-center mb-8 pb-4 border-b">
+            <h2 class="text-xl font-semibold text-purple-600">Mi Cuenta</h2>
+            <button class="close-btn text-gray-600 hover:text-gray-800 text-xl" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="space-y-2">
+            <li>
+                <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-100 hover:text-purple-600 transition-colors">
+                    <i class="fas fa-user mr-4 text-lg w-5 text-center"></i> Perfil
+                </a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-100 hover:text-purple-600 transition-colors">
+                    <i class="fas fa-cog mr-4 text-lg w-5 text-center"></i> Configuración
+                </a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-100 hover:text-purple-600 transition-colors">
+                    <i class="fas fa-heart mr-4 text-lg w-5 text-center"></i> Favoritos
+                </a>
+            </li>
+          
+            <li>
+                <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-100 hover:text-purple-600 transition-colors">
+                    <i class="fas fa-question-circle mr-4 text-lg w-5 text-center"></i> Ayuda
+                </a>
+            </li>
+            <li>
+                <a href="./login.html" class="flex items-center p-3 rounded-lg hover:bg-gray-100 hover:text-purple-600 transition-colors">
+                    <i class="fas fa-sign-in-alt mr-4 text-lg w-5 text-center"></i> Iniciar Sesión
+                </a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-100 hover:text-purple-600 transition-colors">
+                    <i class="fas fa-sign-out-alt mr-4 text-lg w-5 text-center"></i> Cerrar Sesión
+                </a>
+            </li>
+        </ul>
+    </div>
+
+   
+
+    <!-- Contenido principal -->
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <section class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">
+                Descubre nuevas formas de disfrutar tu tiempo libre
+            </h1>
+            <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                Encuentra los mejores eventos y actividades cerca de ti
+            </p>
+        </section>
+
+        <!-- Botones de categorías -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <a href="./html/popular.html">
+                <button class="bg-gradient-to-r from-black to-blue-500 text-white 
+                                category-btn px-6 py-3 bg-white border-2 border-gray-200 rounded-full font-semibold 
+                                flex items-center gap-2 hover:border-black hover:text-black transition-colors 
+                                active:bg-gradient-to-r active:from-black active:to-blue-500 active:text-white active:border-transparent">
+                    Populares
+                </button>
+            </a>
+            <a href="./html/eventos.html">
+                <button class="bg-gradient-to-r from-black to-blue-500 text-white 
+                                category-btn px-6 py-3 bg-white border-2 border-gray-200 rounded-full font-semibold 
+                                flex items-center gap-2 hover:border-black hover:text-black transition-colors 
+                                active:bg-gradient-to-r active:from-black active:to-blue-500 active:text-white active:border-transparent">
+                    Eventos
+                </button>
+            </a>
+            <a href="./html/novedades.html">
+                <button class="bg-gradient-to-r from-black to-blue-500 text-white 
+                                category-btn px-6 py-3 bg-white border-2 border-gray-200 rounded-full font-semibold 
+                                flex items-center gap-2 hover:border-black hover:text-black transition-colors 
+                                active:bg-gradient-to-r active:from-black active:to-blue-500 active:text-white active:border-transparent">
+                    Novedades
+                </button>
+            </a>
+            <a href="./html/actividades.html">
+                <button class="bg-gradient-to-r from-black to-blue-500 text-white 
+                                category-btn px-6 py-3 bg-white border-2 border-gray-200 rounded-full font-semibold 
+                                flex items-center gap-2 hover:border-black hover:text-black transition-colors 
+                                active:bg-gradient-to-r active:from-black active:to-blue-500 active:text-white active:border-transparent">
+                    Actividades
+                </button>
+            </a>
+        </div>
+
+        <h2 class="text-3xl font-bold text-center mb-8 gradient-text">Destacados</h2>
+        
+        <!-- Cards de actividades -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-2 transition-transform duration-300 hover:shadow-xl">
+                <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&auto=format&fit=crop&w=1074&q=80" 
+                     alt="Concierto" 
+                     class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Concierto de Jazz</h3>
+                    <p class="text-gray-600 mb-4">Disfruta de una noche inolvidable con los mejores músicos de jazz de la ciudad.</p>
+                    <div class="flex justify-between text-gray-500 text-sm mb-3">
+                        <span><i class="far fa-calendar mr-1"></i> Sábado, 15 Junio</span>
+                    </div>
+                    <div class="flex items-center text-purple-600 font-semibold">
+                        <i class="far fa-clock mr-2"></i> 20:00 - 23:00
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-2 transition-transform duration-300 hover:shadow-xl">
+                <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                     alt="Senderismo" 
+                     class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Ruta de Senderismo</h3>
+                    <p class="text-gray-600 mb-4">Explora los paisajes más impresionantes de la región en esta ruta guiada.</p>
+                    <div class="flex justify-between text-gray-500 text-sm mb-3">
+                        <span><i class="far fa-calendar mr-1"></i> Domingo, 16 Junio</span>
+                    </div>
+                    <div class="flex items-center text-purple-600 font-semibold">
+                        <i class="far fa-clock mr-2"></i> 09:00 - 14:00
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-2 transition-transform duration-300 hover:shadow-xl">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                     alt="Taller de cocina" 
+                     class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Taller de Cocina Italiana</h3>
+                    <p class="text-gray-600 mb-4">Aprende a preparar auténtica pasta italiana con chefs profesionales.</p>
+                    <div class="flex justify-between text-gray-500 text-sm mb-3">
+                        <span><i class="far fa-calendar mr-1"></i> Viernes, 21 Junio</span>
+                    </div>
+                    <div class="flex items-center text-purple-600 font-semibold">
+                        <i class="far fa-clock mr-2"></i> 18:00 - 21:00
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-2 transition-transform duration-300 hover:shadow-xl">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                     alt="Exposición de arte" 
+                     class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Exposición de Arte Moderno</h3>
+                    <p class="text-gray-600 mb-4">Descubre las obras más vanguardistas de artistas emergentes.</p>
+                    <div class="flex justify-between text-gray-500 text-sm mb-3">
+                        <span><i class="far fa-calendar mr-1"></i> Hasta 30 Junio</span>
+                    </div>
+                    <div class="flex items-center text-purple-600 font-semibold">
+                        <i class="far fa-clock mr-2"></i> 10:00 - 20:00
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-2 transition-transform duration-300 hover:shadow-xl">
+                <img src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                     alt="Cine al aire libre" 
+                     class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Cine al Aire Libre</h3>
+                    <p class="text-gray-600 mb-4">Proyección de películas clásicas en un entorno único bajo las estrellas.</p>
+                    <div class="flex justify-between text-gray-500 text-sm mb-3">
+                        <span><i class="far fa-calendar mr-1"></i> Sábado, 22 Junio</span>
+                    </div>
+                    <div class="flex items-center text-purple-600 font-semibold">
+                        <i class="far fa-clock mr-2"></i> 21:30 - 00:00
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:-translate-y-2 transition-transform duration-300 hover:shadow-xl">
+                <img src="https://i.ibb.co/PsvGXqFM/image.png" 
+                     alt="Concierto" 
+                     class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">BAD COMPANY 1920</h3>
+                    <p class="text-gray-600 mb-4">Speakeasy inspirado en los años de la Ley Seca. Cócteles exquisitos presentados de la manera más original por Santi Ortiz.</p>
+                    <div class="flex justify-between text-gray-500 text-sm mb-3">
+                        <span><i class="far fa-calendar mr-1"></i> Todos los dias</span>
+                    </div>
+                    <div class="flex items-center text-purple-600 font-semibold">
+                        <i class="far fa-clock mr-2"></i> 18:00 - 2:00
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Funcionalidad del menú desplegable
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const closeSidebar = document.getElementById('closeSidebar');
+        const overlay = document.getElementById('overlay');
+        
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.remove('-right-80');
+            sidebar.classList.add('right-0');
+            overlay.classList.remove('opacity-0', 'invisible');
+            overlay.classList.add('opacity-100', 'visible');
+        });
+        
+        closeSidebar.addEventListener('click', () => {
+            sidebar.classList.remove('right-0');
+            sidebar.classList.add('-right-80');
+            overlay.classList.remove('opacity-100', 'visible');
+            overlay.classList.add('opacity-0', 'invisible');
+        });
+        
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('right-0');
+            sidebar.classList.add('-right-80');
+            overlay.classList.remove('opacity-100', 'visible');
+            overlay.classList.add('opacity-0', 'invisible');
+        });
+        
+        // Funcionalidad de los botones de categoría
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                categoryButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-gradient-to-r', 'from-purple-600', 'to-blue-500', 'text-white', 'border-transparent');
+                });
+                button.classList.add('active', 'bg-gradient-to-r', 'from-purple-600', 'to-blue-500', 'text-white', 'border-transparent');
+            });
+        });
+    </script>
+</body>
+</html>

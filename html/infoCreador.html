@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TARDEO - Información del Creador</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+    <link rel="stylesheet" href="../css/output.css">
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #070000, #487fde);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .sidebar {
+            transition: all 0.3s ease;
+        }
+        
+        .overlay {
+            transition: all 0.3s ease;
+        }
+        
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 40;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        #overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .skill-card {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen">
+    <!-- Overlay para el sidebar -->
+    <div id="overlay" class="overlay opacity-0 invisible"></div>
+
+    <!-- Barra superior -->
+    <nav class="bg-gradient-to-r from-black to-blue-500 text-white p-4 md:p-6 shadow-lg sticky top-0 z-50">
+        <div class="flex justify-between items-center">
+            <div class="text-2xl md:text-3xl font-bold tracking-wide text-center flex-1">
+                <a href="../index.html" class="hover:text-gray-200 transition-colors">TARDEO</a>
+            </div>
+            <button class="menu-toggle p-2 rounded hover:bg-white/10 transition-colors" id="menuToggle">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Menú lateral desplegable -->
+    <div class="sidebar fixed top-0 -right-80 w-72 h-screen bg-white shadow-xl z-50 p-6 overflow-y-auto" id="sidebar">
+        <div class="flex justify-between items-center mb-8 pb-4 border-b">
+            <h2 class="text-xl font-semibold text-blue-600">Mi Cuenta</h2>
+            <button class="close-btn text-gray-600 hover:text-gray-800 text-xl" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="space-y-2">
+            <li>
+                <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors">
+                    <i class="fas fa-user mr-4 text-lg w-5 text-center"></i> Perfil
+                </a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors">
+                    <i class="fas fa-cog mr-4 text-lg w-5 text-center"></i> Configuración
+                </a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors">
+                    <i class="fas fa-heart mr-4 text-lg w-5 text-center"></i> Favoritos
+                </a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors">
+                    <i class="fas fa-history mr-4 text-lg w-5 text-center"></i> Historial
+                </a>
+            </li>
+
+<li>
+                <a href="./html/infoCreador.html" class="flex items-center p-3 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors">
+                    <i class="fa-solid fa-code mr-4 text-lg w-5 text-center"></i> Información Creador
+                </a>
+            </li>
+
+            <li>
+                <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors">
+                    <i class="fas fa-question-circle mr-4 text-lg w-5 text-center"></i> Ayuda
+                </a>
+            </li>
+            <li>
+                <a href="../login.html" class="flex items-center p-3 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors">
+                    <i class="fas fa-sign-in-alt mr-4 text-lg w-5 text-center"></i> Iniciar Sesión
+                </a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center p-3 rounded-lg hover:bg-gray-100 hover:text-blue-600 transition-colors">
+                    <i class="fas fa-sign-out-alt mr-4 text-lg w-5 text-center"></i> Cerrar Sesión
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Título de la página -->
+        <div class="text-center mb-10">
+            <h1 class="text-3xl md:text-4xl font-bold gradient-text mb-4">Información del Creador</h1>
+            <p class="text-gray-600 text-lg">Conoce al desarrollador detrás de TARDEO</p>
+        </div>
+
+        <!-- Tarjeta de perfil principal -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+            <div class="bg-gradient-to-r from-black to-blue-500 h-24"></div>
+            <div class="relative px-6 pb-6">
+                <div class="flex flex-col md:flex-row items-center md:items-end -mt-10">    <!-- -mt-altura, decide el desplazamiento del contenedor  -->
+                    <!-- Avatar -->
+                    <div class="relative">
+                        <div class="w-32 h-32 rounded-full border-4 border-white overflow-hidden bg-white shadow-xl">
+                            <img src="/MiProyecto/img/imagen-mia.jpg" 
+                                 alt="Avatar del creador"
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <span class="absolute bottom-0 right-0 bg-green-500 w-5 h-5 rounded-full border-2 border-white"></span>
+                    </div>
+                    
+                    <!-- Nombre y título -->
+                    <div class="md:ml-6 mt-4 md:mt-0 text-center md:text-left flex-1">
+                        <h2 class="text-2xl font-bold text-gray-800 flex items-center justify-center md:justify-start">
+                            Felipe García Ledrado
+                            <i class="fas fa-check-circle text-blue-500 ml-2" title="Verificado"></i>
+                        </h2>
+                        <p class="text-gray-600">Desarrollador Full Stack & Creador de TARDEO</p>
+                        <div class="flex items-center justify-center md:justify-start mt-2 text-sm text-gray-500">
+                            <i class="fas fa-map-marker-alt mr-1"></i>
+                            <span>Toledo, España</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Redes sociales -->
+                    <div class="flex gap-3 mt-4 md:mt-0">
+                        
+                        <a class= "w-10 h-10 bg-gradient-to-tr from-black to-black p-2 sm:size-10 flex items-center justify-center rounded-full hover:scale-125 transition-transform" 
+                            href="https://github.com/felipeCodeMaker/DAW" target = "_blank" aria-label="Github" title = "Ir a Github de @FelipeAlumno">
+                            <svg class = "size-8">
+                                <use href="../img/sprite.svg#github"></use>
+                            </svg>
+                        </a>
+                        <a class= "w-10 h-10 bg-gradient-to-tr from-white to-black p-2 sm:size-10 flex items-center justify-center rounded-full hover:scale-125 transition-transform" 
+                            href="https://github.com/felipeCodeMaker/DAW" target = "_blank" aria-label="Github" title = "Ir a Github de @FelipeAlumno">
+                            <svg class = "size-8">
+                                <use href="../img/sprite.svg#linkedin"></use>
+                            </svg>
+                        </a>
+                        <a class= "w-10 h-10 bg-gradient-to-tr from-yellow-300 via-pink-600 to-purple-600 p-2 sm:size-10 flex items-center justify-center rounded-full hover:scale-125 transition-transform" 
+                            href="https://github.com/felipeCodeMaker/DAW" target = "_blank" aria-label="Github" title = "Ir a Github de @FelipeAlumno">
+                            <svg class = "size-8">
+                                <use href="../img/sprite.svg#instagram"></use>
+                            </svg>
+                        </a>
+                        <a class= "w-10 h-10 bg-gradient-to-tr from-white to-black p-2 sm:size-10 flex items-center justify-center rounded-full hover:scale-125 transition-transform" 
+                            href="https://github.com/felipeCodeMaker/DAW" target = "_blank" aria-label="Github" title = "Ir a Github de @FelipeAlumno">
+                            <svg class = "size-8">
+                                <use href="../img/sprite.svg#x"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grid de información -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <!-- Sobre mí -->
+            <div class="md:col-span-2 bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-user-circle text-blue-600 mr-2"></i>
+                    Sobre mí
+                </h3>
+                <p class="text-gray-600 mb-4">
+                    Desarrollador web apasionado por crear experiencias digitales únicas. 
+                    Estudiante de Desarrollo de Aplicaciones Web (DAW) con especial interés 
+                    en el front-end y la experiencia de usuario.
+                </p>
+                <p class="text-gray-600">
+                    TARDEO nace de la idea de ayudar a las personas a descubrir eventos y 
+                    actividades interesantes en su ciudad, facilitando la búsqueda y 
+                    organización de su tiempo libre.
+                </p>
+                
+                <!-- Estadísticas rápidas -->
+                <div class="grid grid-cols-3 gap-4 mt-6">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-blue-600">1+</div>
+                        <div class="text-sm text-gray-500">Años experiencia</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-blue-600">15+</div>
+                        <div class="text-sm text-gray-500">Proyectos</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-blue-600">4.9</div>
+                        <div class="text-sm text-gray-500">Valoración</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Info contacto -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-address-card text-blue-600 mr-2"></i>
+                    Información
+                </h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <i class="fas fa-envelope text-gray-400 w-5 mt-1"></i>
+                        <span class="ml-3 text-gray-600 break-all">felipe.garcia@example.com</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-phone text-gray-400 w-5 mt-1"></i>
+                        <span class="ml-3 text-gray-600">+34 123 456 789</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-globe text-gray-400 w-5 mt-1"></i>
+                        <span class="ml-3 text-gray-600">www.felipegarcia.dev</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-calendar text-gray-400 w-5 mt-1"></i>
+                        <span class="ml-3 text-gray-600">Disponible para proyectos</span>
+                    </li>
+                </ul>
+                
+                <div class="mt-6 pt-6 border-t border-gray-100">
+                    <h4 class="font-semibold text-gray-700 mb-3">Idiomas</h4>
+                    <div class="space-y-2">
+                        <div>
+                            <div class="flex justify-between text-sm">
+                                <span>Español</span>
+                                <span class="text-gray-500">Nativo</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm">
+                                <span>Inglés</span>
+                                <span class="text-gray-500">Intermedio</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Habilidades técnicas -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-10">
+            <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-code text-blue-600 mr-2"></i>
+                Habilidades Técnicas
+            </h3>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="skill-card bg-gray-50 rounded-lg p-4 text-center">
+                    <i class="fab fa-html5 text-4xl text-orange-600 mb-2"></i>
+                    <h4 class="font-semibold">HTML5</h4>
+                    <p class="text-xs text-gray-500">Avanzado</p>
+                </div>
+                <div class="skill-card bg-gray-50 rounded-lg p-4 text-center">
+                    <i class="fab fa-css3-alt text-4xl text-blue-600 mb-2"></i>
+                    <h4 class="font-semibold">CSS3</h4>
+                    <p class="text-xs text-gray-500">Avanzado</p>
+                </div>
+                <div class="skill-card bg-gray-50 rounded-lg p-4 text-center">
+                    <i class="fab fa-js text-4xl text-yellow-500 mb-2"></i>
+                    <h4 class="font-semibold">JavaScript</h4>
+                    <p class="text-xs text-gray-500">Intermedio</p>
+                </div>
+                <div class="skill-card bg-gray-50 rounded-lg p-4 text-center">
+                    <i class="fab fa-react text-4xl text-cyan-500 mb-2"></i>
+                    <h4 class="font-semibold">React</h4>
+                    <p class="text-xs text-gray-500">Intermedio</p>
+                </div>
+                <div class="skill-card bg-gray-50 rounded-lg p-4 text-center">
+                    <i class="fab fa-node text-4xl text-green-600 mb-2"></i>
+                    <h4 class="font-semibold">Node.js</h4>
+                    <p class="text-xs text-gray-500">Intermedio</p>
+                </div>
+                <div class="skill-card bg-gray-50 rounded-lg p-4 text-center">
+                    <i class="fas fa-database text-4xl text-gray-600 mb-2"></i>
+                    <h4 class="font-semibold">MongoDB</h4>
+                    <p class="text-xs text-gray-500">Básico</p>
+                </div>
+                <div class="skill-card bg-gray-50 rounded-lg p-4 text-center">
+                    <i class="fab fa-git-alt text-4xl text-orange-600 mb-2"></i>
+                    <h4 class="font-semibold">Git</h4>
+                    <p class="text-xs text-gray-500">Intermedio</p>
+                </div>
+                <div class="skill-card bg-gray-50 rounded-lg p-4 text-center">
+                    <i class="fas fa-mobile-alt text-4xl text-blue-600 mb-2"></i>
+                    <h4 class="font-semibold">Tailwind</h4>
+                    <p class="text-xs text-gray-500">Avanzado</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyectos destacados -->
+        <div class="bg-white rounded-xl shadow-lg p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                <i class="fas fa-rocket text-blue-600 mr-2"></i>
+                Proyectos Destacados
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                    <h4 class="font-bold text-gray-800 mb-2">TARDEO</h4>
+                    <p class="text-sm text-gray-600 mb-3">Plataforma para descubrir eventos y actividades en tu ciudad.</p>
+                    <div class="flex items-center text-xs text-gray-500">
+                        <i class="fas fa-code-branch mr-1"></i>
+                        <span>HTML, CSS, JavaScript, Tailwind</span>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                    <h4 class="font-bold text-gray-800 mb-2">DAW Portfolio</h4>
+                    <p class="text-sm text-gray-600 mb-3">Portafolio personal con proyectos del ciclo formativo.</p>
+                    <div class="flex items-center text-xs text-gray-500">
+                        <i class="fas fa-code-branch mr-1"></i>
+                        <span>React, Node.js, MongoDB</span>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                    <h4 class="font-bold text-gray-800 mb-2">Weather App</h4>
+                    <p class="text-sm text-gray-600 mb-3">Aplicación del clima con API externa y geolocalización.</p>
+                    <div class="flex items-center text-xs text-gray-500">
+                        <i class="fas fa-code-branch mr-1"></i>
+                        <span>JavaScript, API REST, CSS</span>
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                    <h4 class="font-bold text-gray-800 mb-2">Task Manager</h4>
+                    <p class="text-sm text-gray-600 mb-3">Gestor de tareas con autenticación y base de datos.</p>
+                    <div class="flex items-center text-xs text-gray-500">
+                        <i class="fas fa-code-branch mr-1"></i>
+                        <span>MERN Stack</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-black to-blue-500 text-white py-6 mt-10">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm opacity-90">© 2024 TARDEO - Creado por Felipe García Ledrado</p>
+            <p class="text-xs opacity-75 mt-2">Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/menu.js"></script>
+</body>
+</html>

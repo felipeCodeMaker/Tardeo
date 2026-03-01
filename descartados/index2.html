@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TARDEO - Descubre Nuevas Formas de Disfrutar</title>
+    <link rel="stylesheet" href="./css/index2.css">
+
+</head>
+<body>
+    <!-- Barra superior más alta -->
+    <nav class="navbar">
+        <div class="logo">TARDEO</div>
+        <button class="menu-toggle" id="menuToggle">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </button>
+    </nav>
+
+    <!-- Menú lateral desplegable -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2 class="sidebar-title">Opciones</h2>
+            <button class="close-btn" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="#"><i class="fas fa-user-circle"></i> Mi Perfil</a></li>
+            <li><a href="#"><i class="fas fa-cog"></i> Ajustes</a></li>
+            <li><a href="#"><i class="fas fa-bell"></i> Notificaciones</a></li>
+            <li><a href="#"><i class="fas fa-heart"></i> Favoritos</a></li>
+            <li><a href="#"><i class="fas fa-history"></i> Historial</a></li>
+            <li><a href="#"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+            <li><a href="#"><i class="fas fa-moon"></i> Modo Oscuro</a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
+        </ul>
+    </div>
+
+    <!-- Overlay para cerrar menú -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Contenido principal -->
+    <div class="container">
+        <section class="hero">
+            <h1>Descubre nuevas formas de disfrutar tu tiempo libre</h1>
+            <p>Encuentra los mejores eventos y actividades cerca de ti</p>
+        </section>
+
+        <!-- Botones de categorías -->
+        <div class="category-buttons">
+            <button class="category-btn active">
+                <i class="fas fa-fire"></i> Populares
+            </button>
+            <button class="category-btn">
+                <i class="fas fa-calendar-alt"></i> Eventos
+            </button>
+            <button class="category-btn">
+                <i class="fas fa-star"></i> Novedades
+            </button>
+        </div>
+
+        <!-- Cards de actividades -->
+        <div class="cards-container">
+            <!-- Card 1 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Concierto" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Concierto de Jazz</h3>
+                    <p class="card-desc">Disfruta de una noche inolvidable con los mejores músicos de jazz de la ciudad.</p>
+                    <div class="card-details">
+                        <span><i class="far fa-calendar"></i> Sábado, 15 Junio</span>
+                    </div>
+                    <div class="card-time">
+                        <i class="far fa-clock"></i> 20:00 - 23:00
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Senderismo" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Ruta de Senderismo</h3>
+                    <p class="card-desc">Explora los paisajes más impresionantes de la región en esta ruta guiada.</p>
+                    <div class="card-details">
+                        <span><i class="far fa-calendar"></i> Domingo, 16 Junio</span>
+                    </div>
+                    <div class="card-time">
+                        <i class="far fa-clock"></i> 09:00 - 14:00
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Taller de cocina" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Taller de Cocina Italiana</h3>
+                    <p class="card-desc">Aprende a preparar auténtica pasta italiana con chefs profesionales.</p>
+                    <div class="card-details">
+                        <span><i class="far fa-calendar"></i> Viernes, 21 Junio</span>
+                    </div>
+                    <div class="card-time">
+                        <i class="far fa-clock"></i> 18:00 - 21:00
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Exposición de arte" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Exposición de Arte Moderno</h3>
+                    <p class="card-desc">Descubre las obras más vanguardistas de artistas emergentes.</p>
+                    <div class="card-details">
+                        <span><i class="far fa-calendar"></i> Hasta 30 Junio</span>
+                    </div>
+                    <div class="card-time">
+                        <i class="far fa-clock"></i> 10:00 - 20:00
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Cine al aire libre" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Cine al Aire Libre</h3>
+                    <p class="card-desc">Proyección de películas clásicas en un entorno único bajo las estrellas.</p>
+                    <div class="card-details">
+                        <span><i class="far fa-calendar"></i> Sábado, 22 Junio</span>
+                    </div>
+                    <div class="card-time">
+                        <i class="far fa-clock"></i> 21:30 - 00:00
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Funcionalidad del menú desplegable
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const closeSidebar = document.getElementById('closeSidebar');
+        const overlay = document.getElementById('overlay');
+        
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+        });
+        
+        closeSidebar.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+        
+        // Funcionalidad de los botones de categoría
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

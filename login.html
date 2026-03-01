@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TARDEO - Iniciar Sesión</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./dist/output.css">
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #07000e, #1c61d9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+    <!-- Barra superior -->
+    <nav class="bg-gradient-to-r from-black to-blue-500 text-white p-4 md:p-6 shadow-lg">
+        <div class="text-2xl md:text-3xl font-bold tracking-wide text-center">
+            <a href="./index.html">TARDEO</a>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="flex-1 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-lg p-8 max-w-md w-full">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold gradient-text mb-2">Bienvenido</h1>
+                <p class="text-gray-600">Inicia sesión en TARDEO</p>
+            </div>
+            
+            <form id="loginForm" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-envelope mr-2 text-blue-500"></i>Email o Usuario
+                    </label>
+                    <input type="text" id="email" required
+                           class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-lock mr-2 text-blue-500"></i>Contraseña
+                    </label>
+                    <input type="password" id="password" required
+                           class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500">
+                </div>
+                
+                <button type="submit" 
+                        class="w-full bg-gradient-to-r from-black to-blue-500 text-white py-3 rounded-lg font-semibold hover:opacity-90">
+                    <i class="fas fa-sign-in-alt mr-2"></i>Iniciar Sesión
+                </button>
+                
+                <div id="error-message" class="hidden bg-red-100 text-red-700 px-4 py-3 rounded-lg text-center"></div>
+                <div id="success-message" class="hidden bg-green-100 text-green-700 px-4 py-3 rounded-lg text-center"></div>
+            </form>
+            
+            <div class="mt-6 text-center">
+                <a href="./registro.html" class="text-blue-600 hover:text-blue-800">
+                    ¿No tienes cuenta? Regístrate
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const emailInput = document.getElementById('email').value.trim();
+            const passwordInput = document.getElementById('password').value;
+            
+            try {
+                // Leer usuarios del JSON
+                const response = await fetch('./data/usuarios.json');
+                const data = await response.json();
+                
+                console.log('Usuarios en JSON:', data.usuarios);
+                
+                // Buscar usuario que coincida con email/alias Y contraseña
+                const usuario = data.usuarios.find(u => 
+                    (u.email === emailInput || u.alias === emailInput) && 
+                    u.password === passwordInput
+                );
+                
+                if (usuario) {
+                    // Login exitoso
+                    mostrarExito('¡Login exitoso! Redirigiendo...');
+                    
+                    // Guardar sesión
+                    sessionStorage.setItem('usuarioActual', JSON.stringify({
+                        id: usuario.id,
+                        alias: usuario.alias,
+                        email: usuario.email
+                    }));
+                    
+                    setTimeout(() => {
+                        window.location.href = './index.html';
+                    }, 1500);
+                } else {
+                    mostrarError('Email/usuario o contraseña incorrectos');
+                }
+                
+            } catch (error) {
+                console.error('Error:', error);
+                mostrarError('Error al conectar. Intenta de nuevo.');
+            }
+        });
+
+        function mostrarError(msg) {
+            const errorDiv = document.getElementById('error-message');
+            errorDiv.textContent = msg;
+            errorDiv.classList.remove('hidden');
+            setTimeout(() => errorDiv.classList.add('hidden'), 5000);
+        }
+
+        function mostrarExito(msg) {
+            const successDiv = document.getElementById('success-message');
+            successDiv.textContent = msg;
+            successDiv.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

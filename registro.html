@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TARDEO - Registro de Usuario</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./dist/output.css">
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #07000e, #1c61d9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+    <!-- Barra superior -->
+    <nav class="bg-gradient-to-r from-black to-blue-500 text-white p-4 md:p-6 shadow-lg sticky top-0 z-50">
+        <div class="flex justify-between items-center">
+            <div class="text-2xl md:text-3xl font-bold tracking-wide text-center flex-1">
+                <a href="./index.html">TARDEO</a>
+            </div>
+            <button class="menu-toggle p-2 rounded hover:bg-white/10 transition-colors" id="menuToggle">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Contenido principal centrado -->
+    <div class="flex-1 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-lg p-8 max-w-md w-full">
+            <!-- Header del registro -->
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold gradient-text mb-2">Crear Cuenta</h1>
+                <p class="text-gray-600">Regístrate para disfrutar de TARDEO</p>
+            </div>
+            
+            <!-- Formulario de registro -->
+            <form id="registroForm" class="space-y-4">
+                <div>
+                    <label for="alias" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-user mr-2 text-blue-500"></i>Nombre de usuario
+                    </label>
+                    <input type="text" 
+                           id="alias" 
+                           name="alias"
+                           class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
+                           placeholder="Ej: juan123" 
+                           required>
+                </div>
+                
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-envelope mr-2 text-blue-500"></i>Email
+                    </label>
+                    <input type="email" 
+                           id="email" 
+                           name="email"
+                           class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
+                           placeholder="ejemplo@correo.com" 
+                           required>
+                </div>
+                
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-lock mr-2 text-blue-500"></i>Contraseña
+                    </label>
+                    <input type="password" 
+                           id="password" 
+                           name="password"
+                           class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
+                           placeholder="Mínimo 6 caracteres" 
+                           minlength="6"
+                           required>
+                </div>
+                
+                <div>
+                    <label for="confirm-password" class="block text-sm font-medium text-gray-700 mb-2">
+                        <i class="fas fa-lock mr-2 text-blue-500"></i>Confirmar Contraseña
+                    </label>
+                    <input type="password" 
+                           id="confirm-password" 
+                           class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none"
+                           placeholder="Repite tu contraseña" 
+                           required>
+                </div>
+                
+                <div class="flex items-center">
+                    <input type="checkbox" id="terms" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                    <label for="terms" class="ml-2 text-sm text-gray-600">
+                        Acepto los <a href="#" class="text-blue-600 hover:underline">términos y condiciones</a>
+                    </label>
+                </div>
+                
+                <button type="submit" 
+                        class="w-full bg-gradient-to-r from-black to-blue-500 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity shadow-md hover:shadow-lg">
+                    <i class="fas fa-user-plus mr-2"></i>Registrarse
+                </button>
+                
+                <div id="error-message" 
+                     class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg text-center">
+                    <i class="fas fa-exclamation-circle mr-2"></i>
+                    <span id="error-text">Error al registrar</span>
+                </div>
+                
+                <div id="success-message" 
+                     class="hidden bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg text-center">
+                    <i class="fas fa-check-circle mr-2"></i>
+                    ¡Registro exitoso! Redirigiendo...
+                </div>
+            </form>
+            
+            <div class="mt-6 text-center">
+                <p class="text-gray-600">
+                    ¿Ya tienes una cuenta? 
+                    <a href="./login.html" class="text-blue-600 hover:text-blue-800 font-semibold transition-colors">
+                        Inicia sesión <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-black to-blue-500 text-white py-4">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm opacity-90">© 2024 TARDEO - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Función para cargar usuarios del JSON
+        async function cargarUsuarios() {
+            try {
+                const response = await fetch('./data/usuarios.json');
+                if (!response.ok) throw new Error('No se pudo cargar usuarios.json');
+                const data = await response.json();
+                return data.usuarios || [];
+            } catch (error) {
+                console.error('Error cargando usuarios:', error);
+                return [];
+            }
+        }
+
+        // Función para guardar usuarios en el JSON (simulado con localStorage)
+        async function guardarUsuarios(usuarios) {
+            try {
+                // En un entorno real, esto sería una petición POST al servidor
+                // Como estamos en local, guardamos en localStorage como simulación
+                localStorage.setItem('usuarios', JSON.stringify(usuarios));
+                
+                // También actualizamos el archivo JSON (esto es solo visual en consola)
+                console.log('Usuarios actualizados:', usuarios);
+                return true;
+            } catch (error) {
+                console.error('Error guardando usuarios:', error);
+                return false;
+            }
+        }
+
+        // Función para inicializar usuarios desde el JSON a localStorage
+        async function inicializarUsuarios() {
+            // Si ya hay usuarios en localStorage, los usamos
+            const usuariosLocal = localStorage.getItem('usuarios');
+            if (usuariosLocal) {
+                return JSON.parse(usuariosLocal);
+            }
+            
+            // Si no, cargamos del JSON
+            const usuarios = await cargarUsuarios();
+            if (usuarios.length > 0) {
+                localStorage.setItem('usuarios', JSON.stringify(usuarios));
+            }
+            return usuarios;
+        }
+
+        // Manejar el envío del formulario
+        document.getElementById('registroForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            const alias = document.getElementById('alias').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const terms = document.getElementById('terms').checked;
+            const errorMessage = document.getElementById('error-message');
+            const errorText = document.getElementById('error-text');
+            const successMessage = document.getElementById('success-message');
+            
+            // Validar términos
+            if (!terms) {
+                errorText.textContent = 'Debes aceptar los términos y condiciones';
+                errorMessage.classList.remove('hidden');
+                successMessage.classList.add('hidden');
+                setTimeout(() => errorMessage.classList.add('hidden'), 5000);
+                return;
+            }
+            
+            // Validar contraseñas
+            if (password !== confirmPassword) {
+                errorText.textContent = 'Las contraseñas no coinciden';
+                errorMessage.classList.remove('hidden');
+                successMessage.classList.add('hidden');
+                setTimeout(() => errorMessage.classList.add('hidden'), 5000);
+                return;
+            }
+            
+            // Validar longitud de contraseña
+            if (password.length < 6) {
+                errorText.textContent = 'La contraseña debe tener al menos 6 caracteres';
+                errorMessage.classList.remove('hidden');
+                successMessage.classList.add('hidden');
+                setTimeout(() => errorMessage.classList.add('hidden'), 5000);
+                return;
+            }
+            
+            try {
+                // Cargar usuarios actuales
+                const usuarios = await inicializarUsuarios();
+                
+                // Verificar si el email ya existe
+                const emailExistente = usuarios.find(u => u.email.toLowerCase() === email.toLowerCase());
+                if (emailExistente) {
+                    errorText.textContent = 'Este email ya está registrado';
+                    errorMessage.classList.remove('hidden');
+                    successMessage.classList.add('hidden');
+                    setTimeout(() => errorMessage.classList.add('hidden'), 5000);
+                    return;
+                }
+                
+                // Verificar si el alias ya existe
+                const aliasExistente = usuarios.find(u => u.alias.toLowerCase() === alias.toLowerCase());
+                if (aliasExistente) {
+                    errorText.textContent = 'Este nombre de usuario ya está en uso';
+                    errorMessage.classList.remove('hidden');
+                    successMessage.classList.add('hidden');
+                    setTimeout(() => errorMessage.classList.add('hidden'), 5000);
+                    return;
+                }
+                
+                // Crear nuevo usuario
+                const nuevoUsuario = {
+                    id: usuarios.length + 1,
+                    alias: alias,
+                    email: email,
+                    password: password // En un proyecto real, deberías encriptar la contraseña
+                };
+                
+                // Añadir a la lista
+                usuarios.push(nuevoUsuario);
+                
+                // Guardar en localStorage
+                await guardarUsuarios(usuarios);
+                
+                // Mostrar éxito
+                errorMessage.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+                
+                // Limpiar formulario
+                document.getElementById('registroForm').reset();
+                
+                // Redirigir al login después de 2 segundos
+                setTimeout(() => {
+                    window.location.href = './login.html';
+                }, 2000);
+                
+            } catch (error) {
+                console.error('Error en registro:', error);
+                errorText.textContent = 'Error al registrar. Intenta de nuevo.';
+                errorMessage.classList.remove('hidden');
+                successMessage.classList.add('hidden');
+                setTimeout(() => errorMessage.classList.add('hidden'), 5000);
+            }
+        });
+
+        // Inicializar usuarios al cargar la página
+        document.addEventListener('DOMContentLoaded', inicializarUsuarios);
+    </script>
+    <script src="./js/menu.js"></script>
+</body>
+</html>
